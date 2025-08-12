@@ -1,33 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cool Static Page</title>
-    <style>
-        /* Add some simple, intentional styling here */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .container {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Icebreakers Foundation — Empowering Communities</title>
+  <meta name="description" content="Icebreakers Foundation empowers communities through refreshing change. Learn about our mission, programs, and how to get involved."/>
+  <link rel="canonical" href="https://www.icebreakerswater.com/icebreakers-foundation"/>
+  <meta property="og:title" content="Icebreakers Foundation — Empowering Communities"/>
+  <meta property="og:description" content="Our 501(c)(3) nonprofit drives youth programs, relief efforts, and community partnerships in Arizona and beyond."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.icebreakerswater.com/icebreakers-foundation"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <style>
+    /* Minimal, modern water-themed design */
+    :root{
+      --bg:#0b1220; --panel:#0f1a2b; --ink:#e9f3ff; --muted:#a7c4e0;
+      --brand:#11b9c8; --brand-2:#0e7ea6; --ring: #58d5e5;
+      --max: 1100px; --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){
+      html:focus-within{scroll-behavior:auto}
+    }
+    body{
+      margin:0; font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink); background: radial-gradient(1200px 600px at 10% -10%, #113156 0%, transparent 60%),
+                         radial-gradient(1000px 500px at 90% -20%, #0b2a3d 0%, transparent 60%),
+                         var(--bg);
+      line-height:1.6;
+    }
+    .container{max-width:var(--max); margin-inline:auto; padding: clamp(16px, 2vw, 28px)}
+    header{
+      position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in oklab, var(--bg) 82%, transparent);
+      border-bottom:1px solid color-mix(in oklab, var(--brand) 25%, transparent);
+      z-index:10;
+    }
+    nav{display:flex; align-items:center; gap:16px; justify-content:space-between}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit}
+    .brand img{height:40px; width:auto; border-radius:8px}
+    .navlinks{display:flex; gap:16px}
+    .navlinks a{color:var(--ink); text-decoration:none; opacity:.9}
+    .navlinks a:hover,.navlinks a[aria-current="page"]{opacity:1; text-decoration:underline; text-underline-offset:4px}
+    .hero{display:grid; align-items:center; min-height:70vh; padding-block:48px}
+    .hero h1{font-size: clamp(28px, 5vw, 56px); line-height:1.1; margin:0 0 12px}
+    .hero p{max-width:60ch; color:var(--muted); margin:0 0 20px}
+    .buttons{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{display:inline-block; padding:12px 18px; border-radius:999px; border:1px solid transparent; color:#001018; background:var(--brand); font-weight:600}
+    .btn.secondary{background:transparent; color:var(--ink); border-color:var(--brand)}
+    section{padding-block:64px}
+    .grid{display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))}
+    .card{background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, transparent), #0a1424);
+      border:1px solid color-mix(in oklab, var(--brand) 10%, transparent); border-radius:var(--radius); padding:18px}
+    .eyebrow{letter-spacing:.08em; text-transform:uppercase; font-size:.8rem; color:var(--ring)}
+    h2{font-size: clamp(22px, 3vw, 34px); margin:0 0 8px}
+    .footer{padding:28px 0; border-top:1px solid color-mix(in oklab, var(--brand) 25%, transparent); color:var(--muted)}
+    .ribbon{background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:#001018; text-align:center; padding:8px 12px}
+    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip:focus{left:12px; top:12px; width:auto; height:auto; background:#fff; color:#000; padding:8px; border-radius:8px}
+    @media (max-width:720px){ .navlinks{display:none} }
+  </style>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="ribbon" role="status">We’re empowering communities through refreshing change.</div>
+  <header>
     <div class="container">
-        <h1>Welcome to My Static Page</h1>
-        <p>This is a simple, no-frills HTML5 page hosted on GitHub Pages. Feel free to customize it and make it yours!</p>
+      <nav aria-label="Primary">
+        <a class="brand" href="#home">
+          <img src="https://imgur.com/a/6wwPVCX" alt="Icebreakers Foundation logo">
+          <strong>Icebreakers Foundation</strong>
+        </a>
+        <div class="navlinks">
+          <a href="#mission">Mission</a>
+          <a href="#programs">Programs</a>
+          <a href="#involved">Get Involved</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
     </div>
+  </header>
+
+  <main id="main">
+    <section id="home" class="hero container">
+      <div>
+        <h1>Empowering Communities Through Refreshing Change</h1>
+        <p><!-- TODO: Paste the Foundation’s one-sentence summary from the page above. --></p>
+        <div class="buttons">
+          <a class="btn" href="https://www.icebreakerswater.com/icebreakers-foundation">Donate</a>
+          <a class="btn secondary" href="#mission">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission" class="container">
+      <p class="eyebrow">Our Mission</p>
+      <h2>Refreshing Lives, Building Community</h2>
+      <p><!-- TODO: Paste Mission paragraph 1 from the Foundation page. --></p>
+      <p><!-- TODO: Paste Mission paragraph 2 or key objectives from the Foundation page. --></p>
+    </section>
+
+    <section id="programs" class="container">
+      <p class="eyebrow">Programs & Initiatives</p>
+      <h2>What We Do</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Youth Media Summer Camps</h3>
+          <p><!-- TODO: Add 1–2 sentence description. --></p>
+        </article>
+        <article class="card">
+          <h3>Food Relief & Community Support</h3>
+          <p><!-- TODO: Add 1–2 sentence description. --></p>
+        </article>
+        <article class="card">
+          <h3>Community Partnerships</h3>
+          <p><!-- TODO: Add 1–2 sentence description (e.g., local orgs, service programs). --></p>
+        </article>
+        <!-- Add more cards as needed -->
+      </div>
+    </section>
+
+    <section id="involved" class="container">
+      <p class="eyebrow">Get Involved</p>
+      <h2>Be Part of the Change</h2>
+      <ul>
+        <li><strong>Donate:</strong> Fuel programs and outreach. <a href="https://www.icebreakerswater.com/icebreakers-foundation">Give now</a>.</li>
+        <li><strong>Volunteer:</strong> Join events and initiatives. <!-- TODO: Add volunteer contact or form link. --></li>
+        <li><strong>Partner:</strong> Organizations and sponsors welcome. <!-- TODO: Add partner email or form. --></li>
+      </ul>
+      <p><a class="btn" href="https://www.icebreakerswater.com/icebreakers-foundation">Donate</a></p>
+    </section>
+
+    <section id="contact" class="container">
+      <p class="eyebrow">Contact</p>
+      <h2>Let’s Connect</h2>
+      <p>Email: <a href="mailto:info@icebreakerswater.com">info@icebreakerswater.com</a></p>
+      <p>Location: Arizona</p>
+      <p>
+        <a href="https://www.instagram.com/icebreakersfoundation" aria-label="Instagram Icebreakers Foundation">Instagram</a> ·
+        <a href="https://www.instagram.com/icebreakerswater" aria-label="Instagram Icebreakers Water">Icebreakers Water</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© <span id="y"></span> Icebreakers Foundation. A 501(c)(3) nonprofit organization. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
