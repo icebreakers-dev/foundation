@@ -43,12 +43,18 @@
     .navlinks{display:flex; gap:16px}
     .navlinks a{color:var(--ink); text-decoration:none; opacity:.9}
     .navlinks a:hover,.navlinks a[aria-current="page"]{opacity:1; text-decoration:underline; text-underline-offset:4px}
+    .menu-btn{display:none; background:transparent; border:1px solid var(--brand); color:var(--ink); padding:8px 12px; border-radius:8px}
     section{padding-block:64px}
     .footer{padding:28px 0; border-top:1px solid color-mix(in oklab, var(--brand) 25%, transparent); color:var(--muted)}
     .ribbon{background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:#001018; text-align:center; padding:8px 12px}
     .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
     .skip:focus{left:12px; top:12px; width:auto; height:auto; background:#fff; color:#000; padding:8px; border-radius:8px}
-    @media (max-width:720px){ .navlinks{display:none} }
+    @media (max-width:720px){
+      nav{position:relative}
+      .menu-btn{display:block}
+      .navlinks{display:none; position:absolute; top:100%; right:0; flex-direction:column; background:var(--panel); width:100%; padding:12px 16px; border-radius:0 0 var(--radius) var(--radius)}
+      .navlinks.open{display:flex}
+    }
   </style>
 </head>
 <body>
@@ -61,7 +67,8 @@
           <img src="IBFLogo.png" alt="Icebreakers Foundation logo">
           <strong>Icebreakers Foundation</strong>
         </a>
-        <div class="navlinks">
+        <button class="menu-btn" id="navToggle" aria-controls="navlinks" aria-expanded="false">Menu</button>
+        <div class="navlinks" id="navlinks">
           <a href="mission.html" aria-current="page">Mission</a>
           <a href="index.html#programs">Programs</a>
           <a href="index.html#involved">Get Involved</a>
@@ -91,6 +98,13 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+    const navToggle = document.getElementById('navToggle');
+    const navlinks = document.getElementById('navlinks');
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      navlinks.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
