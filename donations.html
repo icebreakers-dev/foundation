@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Donations — Icebreakers Foundation</title>
+  <meta name="description" content="Support the Icebreakers Foundation."/>
+  <link rel="canonical" href="https://www.icebreakerswater.com/icebreakers-foundation/donations"/>
+  <meta property="og:title" content="Donations — Icebreakers Foundation"/>
+  <meta property="og:description" content="Support the Icebreakers Foundation."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.icebreakerswater.com/icebreakers-foundation/donations"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <style>
+    /* Minimal, modern water-themed design */
+    :root{
+      --bg:#0b1220; --panel:#0f1a2b; --ink:#e9f3ff; --muted:#a7c4e0;
+      --brand:#11b9c8; --brand-2:#0e7ea6; --ring:#58d5e5;
+      --max:1100px; --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){
+      html:focus-within{scroll-behavior:auto}
+    }
+    body{
+      margin:0; font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink); background: radial-gradient(1200px 600px at 10% -10%, #113156 0%, transparent 60%),
+                         radial-gradient(1000px 500px at 90% -20%, #0b2a3d 0%, transparent 60%),
+                         var(--bg);
+      line-height:1.6;
+    }
+    .container{max-width:var(--max); margin-inline:auto; padding:clamp(16px,2vw,28px)}
+    header{
+      position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in oklab, var(--bg) 82%, transparent);
+      border-bottom:1px solid color-mix(in oklab, var(--brand) 25%, transparent);
+      z-index:10;
+    }
+    nav{display:flex; align-items:center; gap:16px; justify-content:space-between}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit}
+    .brand img{height:40px; width:auto; border-radius:8px}
+    .navlinks{display:flex; gap:16px}
+    .navlinks a{color:var(--ink); text-decoration:none; opacity:.9}
+    .navlinks a:hover,.navlinks a[aria-current="page"]{opacity:1; text-decoration:underline; text-underline-offset:4px}
+    .menu-btn{display:none; background:transparent; border:1px solid var(--brand); color:var(--ink); padding:8px 12px; border-radius:8px}
+    .btn{display:inline-block; padding:12px 18px; border-radius:999px; border:1px solid transparent; color:#001018; background:var(--brand); font-weight:600}
+    section{padding-block:64px}
+    .footer{padding:28px 0; border-top:1px solid color-mix(in oklab, var(--brand) 25%, transparent); color:var(--muted)}
+    .ribbon{background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:#001018; text-align:center; padding:8px 12px}
+    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip:focus{left:12px; top:12px; width:auto; height:auto; background:#fff; color:#000; padding:8px; border-radius:8px}
+    .iframe-container{
+      width:100%;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .responsive-iframe{
+      width:100%;
+      height:90vh;
+      border:none;
+    }
+    @media (max-width:720px){
+      nav{position:relative}
+      .menu-btn{display:block}
+      .navlinks{display:none; position:absolute; top:100%; right:0; flex-direction:column; background:var(--panel); width:100%; padding:12px 16px; border-radius:0 0 var(--radius) var(--radius)}
+      .navlinks.open{display:flex}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="ribbon" role="status">We’re empowering communities through refreshing change.</div>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <a class="brand" href="index.html">
+          <img src="IBFLogo.png" alt="Icebreakers Foundation logo">
+          <strong>Icebreakers Foundation</strong>
+        </a>
+        <button class="menu-btn" id="navToggle" aria-controls="navlinks" aria-expanded="false">Menu</button>
+        <div class="navlinks" id="navlinks">
+          <a href="mission.html">Mission</a>
+          <a href="media.html">Media</a>
+          <a href="index.html#programs">Programs</a>
+          <a href="index.html#involved">Get Involved</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
+  <main id="main">
+    <section class="container">
+      <h1>Donations</h1>
+      <p><a class="btn" href="https://www.paypal.com/donate/?hosted_button_id=X3SC43MKL4A92">Donate</a></p>
+    </section>
+    <section class="container">
+      <div class="iframe-container">
+        <iframe class="responsive-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTaa9uRs8-qo2frhCEdobJ-3k8PAngLM03zyRe88g8uLdxpzZgEM4LcgTPxjbQsZLWRVfeGRphBOrbe/pubhtml?gid=1067771838&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© <span id="y"></span> Icebreakers Foundation. A 501(c)(3) nonprofit organization. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const navToggle = document.getElementById('navToggle');
+    const navlinks = document.getElementById('navlinks');
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      navlinks.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
