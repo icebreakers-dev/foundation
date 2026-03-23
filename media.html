@@ -5,104 +5,184 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Media — Icebreakers Foundation</title>
   <meta name="description" content="Videos and media from the Icebreakers Foundation."/>
-  <link rel="canonical" href="https://www.icebreakerswater.com/icebreakers-foundation/media"/>
-  <meta property="og:title" content="Media — Icebreakers Foundation"/>
-  <meta property="og:description" content="Watch videos and explore media from the Icebreakers Foundation."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://www.icebreakerswater.com/icebreakers-foundation/media"/>
-  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
-    /* Minimal, modern water-themed design */
     :root{
-      --bg:#0b1220; --panel:#0f1a2b; --ink:#e9f3ff; --muted:#a7c4e0;
-      --brand:#11b9c8; --brand-2:#0e7ea6; --ring: #58d5e5;
-      --max: 1100px; --radius: 16px;
+      --bg:#06101e;--surface:#091828;--surface2:#0c2035;
+      --ink:#dff0ff;--muted:#7aacce;
+      --brand:#00c8e0;--brand-dim:#0099b0;--accent:#e0f840;
+      --max:1120px;--r:14px;
     }
-    *{box-sizing:border-box}
-    html:focus-within{scroll-behavior:smooth}
-    @media (prefers-reduced-motion: reduce){
-      html:focus-within{scroll-behavior:auto}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80vw 60vh at 15% 0%,rgba(0,180,210,.12) 0%,transparent 70%),radial-gradient(ellipse 60vw 50vh at 90% 10%,rgba(0,100,160,.1) 0%,transparent 70%)}
+    .wrap{max-width:var(--max);margin-inline:auto;padding-inline:clamp(20px,4vw,48px);position:relative;z-index:1}
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{left:16px;top:16px;width:auto;height:auto;background:var(--accent);color:#000;padding:8px 16px;border-radius:8px;font-weight:600;z-index:100}
+    header{position:sticky;top:0;z-index:50;background:rgba(6,16,30,.85);backdrop-filter:blur(16px) saturate(160%);border-bottom:1px solid rgba(0,200,224,.12)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+    .brand img{height:36px;width:auto;border-radius:6px}
+    .brand strong{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem}
+    .navlinks{display:flex;gap:4px;align-items:center}
+    .navlinks a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;padding:6px 12px;border-radius:8px;transition:color .2s,background .2s}
+    .navlinks a:hover,.navlinks a[aria-current="page"]{color:var(--ink);background:rgba(0,200,224,.1)}
+    .nav-cta{background:var(--brand)!important;color:#001018!important;padding:8px 18px!important;border-radius:999px!important;font-weight:700!important}
+    .nav-cta:hover{background:var(--accent)!important;color:#000!important}
+    .menu-btn{display:none;background:transparent;border:1px solid rgba(0,200,224,.4);color:var(--ink);padding:8px 14px;border-radius:8px;cursor:pointer;font-size:.9rem}
+
+    section{padding-block:80px}
+    .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:12px;display:block}
+    h1{font-family:'Syne',sans-serif;font-size:clamp(34px,6vw,64px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:20px}
+    h2{font-family:'Syne',sans-serif;font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:16px}
+
+    .page-hero{padding-block:80px 60px}
+    .page-hero p{color:var(--muted);font-size:1.1rem;max-width:58ch;font-weight:300}
+
+    /* VIDEO GRID */
+    .video-section{padding-bottom:60px}
+    .video-grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:36px}
+    .video-card{
+      background:var(--surface);border:1px solid rgba(0,200,224,.12);
+      border-radius:var(--r);overflow:hidden;
+      transition:border-color .3s,transform .3s,box-shadow .3s;
     }
-    body{
-      margin:0; font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--ink); background: radial-gradient(1200px 600px at 10% -10%, #113156 0%, transparent 60%),
-                         radial-gradient(1000px 500px at 90% -20%, #0b2a3d 0%, transparent 60%),
-                         var(--bg);
-      line-height:1.6;
+    .video-card:hover{
+      border-color:rgba(0,200,224,.3);transform:translateY(-4px);
+      box-shadow:0 16px 48px rgba(0,0,0,.3);
     }
-    .container{max-width:var(--max); margin-inline:auto; padding: clamp(16px, 2vw, 28px)}
-    header{
-      position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px);
-      background:color-mix(in oklab, var(--bg) 82%, transparent);
-      border-bottom:1px solid color-mix(in oklab, var(--brand) 25%, transparent);
-      z-index:10;
+    .video-card iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+    .video-label{padding:16px 20px}
+    .video-label h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:4px}
+    .video-label p{color:var(--muted);font-size:.85rem}
+
+    /* PHOTO GALLERY */
+    .photo-section{background:var(--surface);border-top:1px solid rgba(0,200,224,.08);border-bottom:1px solid rgba(0,200,224,.08)}
+    .photo-item{margin-top:32px}
+    .photo-item img{
+      width:100%;border-radius:var(--r);
+      border:1px solid rgba(0,200,224,.15);
+      display:block;
+      transition:transform .4s ease,box-shadow .4s ease;
     }
-    nav{display:flex; align-items:center; gap:16px; justify-content:space-between}
-    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit}
-    .brand img{height:40px; width:auto; border-radius:8px}
-    .navlinks{display:flex; gap:16px}
-    .navlinks a{color:var(--ink); text-decoration:none; opacity:.9}
-    .navlinks a:hover,.navlinks a[aria-current="page"]{opacity:1; text-decoration:underline; text-underline-offset:4px}
-    .menu-btn{display:none; background:transparent; border:1px solid var(--brand); color:var(--ink); padding:8px 12px; border-radius:8px}
-    section{padding-block:64px}
-    .footer{padding:28px 0; border-top:1px solid color-mix(in oklab, var(--brand) 25%, transparent); color:var(--muted)}
-    .ribbon{background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:#001018; text-align:center; padding:8px 12px}
-    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
-    .skip:focus{left:12px; top:12px; width:auto; height:auto; background:#fff; color:#000; padding:8px; border-radius:8px}
-    .video-grid{display:grid; gap:24px; grid-template-columns:repeat(auto-fit, minmax(280px,1fr))}
-    .video-grid iframe{width:100%; aspect-ratio:16/9; border:0; border-radius:var(--radius)}
-    .photo-placeholder{background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, transparent), #0a1424);
-      border:1px dashed var(--brand); border-radius:var(--radius); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; color:var(--muted)}
-    @media (max-width:720px){
-      nav{position:relative}
+    .photo-item img:hover{transform:scale(1.01);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+    .photo-caption{
+      margin-top:14px;
+      color:var(--muted);
+      font-style:italic;
+      font-size:.92rem;
+      text-align:center;
+    }
+
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    footer{border-top:1px solid rgba(0,200,224,.1);padding:32px 0}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    footer small{color:var(--muted);font-size:.82rem}
+
+    @media(max-width:768px){
       .menu-btn{display:block}
-      .navlinks{display:none; position:absolute; top:100%; right:0; flex-direction:column; background:var(--panel); width:100%;
-padding:12px 16px; border-radius:0 0 var(--radius) var(--radius)}
+      .navlinks{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(6,16,30,.98);backdrop-filter:blur(16px);padding:16px;gap:4px;border-bottom:1px solid rgba(0,200,224,.12)}
       .navlinks.open{display:flex}
+      nav{position:relative}
     }
   </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="ribbon" role="status">We’re empowering communities through refreshing change.</div>
   <header>
-    <div class="container">
+    <div class="wrap">
       <nav aria-label="Primary">
         <a class="brand" href="index.html">
           <img src="IBFLogo.png" alt="Icebreakers Foundation logo">
           <strong>Icebreakers Foundation</strong>
         </a>
-        <button class="menu-btn" id="navToggle" aria-controls="navlinks" aria-expanded="false">Menu</button>
+        <button class="menu-btn" id="navToggle" aria-controls="navlinks" aria-expanded="false">Menu ☰</button>
         <div class="navlinks" id="navlinks">
           <a href="mission.html">Mission</a>
           <a href="media.html" aria-current="page">Media</a>
           <a href="donations.html">Donations</a>
           <a href="index.html#involved">Get Involved</a>
           <a href="index.html#contact">Contact</a>
+          <a href="https://www.paypal.com/donate/?hosted_button_id=X3SC43MKL4A92" class="nav-cta">Donate</a>
         </div>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="container">
-      <h1>Media</h1>
-      <div class="video-grid">
-        <iframe src="https://player.vimeo.com/video/1109233046" allow="autoplay; fullscreen" allowfullscreen></iframe>
-        <iframe src="https://player.vimeo.com/video/1109233063" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">Our Work in Action</span>
+        <h1>Media &amp; Stories</h1>
+        <p>Watch our videos, follow our programs, and see the impact of the Icebreakers Foundation in the communities we serve.</p>
       </div>
     </section>
 
-    <section id="photos" class="container">
-      <p class="eyebrow">Pictures</p>
-      <h2>Photo Gallery</h2>
-      <div class="photo-placeholder">Future picture will appear here.</div>
+    <section class="video-section">
+      <div class="wrap">
+        <span class="eyebrow reveal">Videos</span>
+        <h2 class="reveal">Watch Our Story</h2>
+        <div class="video-grid">
+          <div class="video-card reveal">
+            <iframe
+              src="https://player.vimeo.com/video/1109233046"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              title="Icebreakers Foundation Video 1"
+            ></iframe>
+            <div class="video-label">
+              <h3>Foundation Highlights</h3>
+              <p>See our community work and programs in action.</p>
+            </div>
+          </div>
+          <div class="video-card reveal">
+            <iframe
+              src="https://player.vimeo.com/video/1109233063"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              title="Icebreakers Foundation Video 2"
+            ></iframe>
+            <div class="video-label">
+              <h3>Community Impact</h3>
+              <p>Stories from the people we serve and support.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="photo-section">
+      <div class="wrap">
+        <span class="eyebrow reveal">Photography</span>
+        <h2 class="reveal">Photo Gallery</h2>
+        <p class="reveal" style="color:var(--muted);max-width:52ch;margin-bottom:0">A visual look at our events, programs, and the communities we're proud to serve.</p>
+        <div class="photo-item reveal">
+          <img
+            src="https://res.cloudinary.com/dewklkyzj/image/upload/v1774282835/Foundationgrads_rqgmhl.jpg"
+            alt="Graduates of the Icebreakers Foundation summer camp working alongside industry professionals"
+            loading="lazy"
+          >
+          <p class="photo-caption">Graduates of our summer camp working alongside industry professionals</p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <small>© <span id="y"></span> Icebreakers Foundation. A 501(c)(3) nonprofit organization. All rights reserved.</small>
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <a class="brand" href="index.html">
+          <img src="IBFLogo.png" alt="Icebreakers Foundation logo">
+          <strong style="font-family:'Syne',sans-serif;font-size:.9rem">Icebreakers Foundation</strong>
+        </a>
+        <small>© <span id="y"></span> Icebreakers Foundation. A 501(c)(3) nonprofit. All rights reserved.</small>
+      </div>
     </div>
   </footer>
 
@@ -115,7 +195,10 @@ padding:12px 16px; border-radius:0 0 var(--radius) var(--radius)}
       navToggle.setAttribute('aria-expanded', String(!expanded));
       navlinks.classList.toggle('open');
     });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, {threshold: 0.1});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
-
