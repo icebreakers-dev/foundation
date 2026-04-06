@@ -62,21 +62,31 @@
 
     /* PHOTO GALLERY */
     .photo-section{background:var(--surface);border-top:1px solid rgba(0,200,224,.08);border-bottom:1px solid rgba(0,200,224,.08)}
-    .photo-item{margin-top:32px}
+    .photo-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:32px;
+    }
+    .photo-item{display:flex;flex-direction:column}
     .photo-item img{
-      width:100%;border-radius:var(--r);
+      width:100%;aspect-ratio:1/1;object-fit:cover;
+      border-radius:var(--r);
       border:1px solid rgba(0,200,224,.15);
       display:block;
-      transition:transform .4s ease,box-shadow .4s ease;
+      transition:transform .4s ease,box-shadow .4s ease,border-color .3s;
     }
-    .photo-item img:hover{transform:scale(1.01);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+    .photo-item img:hover{transform:scale(1.03);box-shadow:0 16px 40px rgba(0,0,0,.5);border-color:rgba(0,200,224,.35)}
     .photo-caption{
-      margin-top:14px;
+      margin-top:10px;
       color:var(--muted);
       font-style:italic;
-      font-size:.92rem;
+      font-size:.8rem;
       text-align:center;
+      line-height:1.4;
     }
+    @media(max-width:900px){.photo-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.photo-grid{grid-template-columns:1fr}}
 
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
@@ -162,13 +172,16 @@
         <span class="eyebrow reveal">Photography</span>
         <h2 class="reveal">Photo Gallery</h2>
         <p class="reveal" style="color:var(--muted);max-width:52ch;margin-bottom:0">A visual look at our events, programs, and the communities we're proud to serve.</p>
-        <div class="photo-item reveal">
-          <img
-            src="https://res.cloudinary.com/dewklkyzj/image/upload/v1774282835/Foundationgrads_rqgmhl.jpg"
-            alt="Graduates of the Icebreakers Foundation summer camp working alongside industry professionals"
-            loading="lazy"
-          >
-          <p class="photo-caption">Graduates of our summer camp working alongside industry professionals</p>
+        <div class="photo-grid reveal">
+          <div class="photo-item">
+            <img
+              src="https://res.cloudinary.com/dewklkyzj/image/upload/v1774282835/Foundationgrads_rqgmhl.jpg"
+              alt="Graduates of the Icebreakers Foundation summer camp working alongside industry professionals"
+              loading="lazy"
+            >
+            <p class="photo-caption">Graduates of our summer camp working alongside industry professionals</p>
+          </div>
+          <!-- Additional photos will appear here -->
         </div>
       </div>
     </section>
